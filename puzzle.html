@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Личный сайт студента GeekBrains</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+	function checkAnswers(){
+
+		var a = 'Два конца, два кольца,\nПосредине гвоздик.'
+		var b = 'Не огонь,\nА жжется.'
+		var c = 'Утром мы во двор идём -\nЛистья сыплются дождём,\nПод ногами шелестят\nИ летят, летят, летят...'
+		var d = 'Растет она вниз головою,\nНе летом растет, а зимою.\nНо солнце ее припечет -\nЗаплачет она и умрет.'
+		var e = 'Хожу в пушистой шубе,\nЖиву в густом лесу.\nВ дупле на старом дубе\nОрешки я грызу.'
+		var a_a = 'НОЖНИЦЫ'
+		var b_a = 'КРАПИВА'
+		var c_a = 'ОСЕНЬ'
+		var d_a = 'СОСУЛЬКА'
+		var e_a = 'БЕЛКА'
+		var i = 0 // Attempts
+		var thanks = ' Спасибо за игру. Правильных ответов с первой попытки '
+		var dot = '.'
+		var wrong = 'Неправильный ответ.'
+		var right = 'Правильный ответ.'
+		var end;
+		var answer_correct;
+		var answer;
+		var riddle;
+		var riddle1;
+
+		function RiddleGenerator () {riddle = Math.floor((Math.random()* 5) + 1);}
+		function WrongAgain () {answer = prompt('Неправильный ответ.\n\nУгадайте загадку еще раз:\n\n' + riddle + '\n\nВведите ответ:'); answer = answer.toUpperCase()}
+		function UpperCaseAnswer () {answer = prompt('Угадайте загадку:\n\n' + riddle + '\n\nВведите ответ:'); answer = answer.toUpperCase();}
+		function NumberToWords () { 
+			if 		(riddle == 1) {riddle = a; answer_correct = a_a;}
+			else if (riddle == 2) {riddle = b; answer_correct = b_a;}
+			else if (riddle == 3) {riddle = c; answer_correct = c_a;}
+			else if (riddle == 4) {riddle = d; answer_correct = d_a;}
+			else  				  {riddle = e; answer_correct = e_a;} }
+
+		RiddleGenerator()
+		riddle1 = riddle
+		NumberToWords()
+		UpperCaseAnswer()
+		if (answer == answer_correct) {i = i + 1; alert(right)}
+		else { WrongAgain(); if (answer == answer_correct) alert(right); else alert (wrong); }
+		RiddleGenerator()
+		while (riddle == riddle1) RiddleGenerator()
+		NumberToWords()
+		UpperCaseAnswer()
+		if (answer == answer_correct) {i = i + 1; alert(right + thanks + i + dot)}
+		else { WrongAgain(); if (answer == answer_correct) alert(right + thanks + i + dot); else alert (wrong + thanks + i + dot); }
+
+
+	}
+
+
+</script>>
+
+
+</head>
+<body>
+
+<div id="tooplate_body_wrapper" />
+<div id="tooplate_wrapper" />
+<div id="tooplate_header">
+
+	<div id="tooplate_menu">
+		<ul>
+			<li><a href="index.html">Главная</a></li>
+			<li><a href="puzzle.html">Загадки</a></li>
+			<li><a href="guess.html">Угадайка</a></li>
+		</ul>    	
+	</div>
+</div>
+    
+<div id="content_box">
+		
+	<div id="content_title">
+		<h2>Игра в загадки</h2>
+	</div>
+	<div id="content">
+		
+		<h3>Отгадай загадки!</h3>  
+
+		</br></br></br>
+		
+		<p>Я меня есть пара загадок. Хотите угадать?<p/>
+	
+		</br></br></br>
+
+		<input type="button" value="Хочу угадать!" onClick="checkAnswers()"/>
+	</div>
+           
+    <div id="tooplate_footer">    
+        Copyright © 2016 Daria Vereshchagina
+    </div>
+    
+</div> <!-- end of warpper -->
+
+</body>
+</html>

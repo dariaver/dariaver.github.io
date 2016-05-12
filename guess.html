@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Личный сайт студента GeekBrains</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+	function checkAnswers(){
+
+
+		var attempt = 0;
+		var note = '';
+		var big;
+		var correct_unswer = Math.floor(Math.random()*100 + 1); // Компьютер загадывает число
+		var user_unswer;
+		var ending1;
+		var ending2;
+		//alert (correct_unswer)
+		while (user_unswer != correct_unswer) {
+			attempt++; // attempt = attempt + 1;
+			if (attempt > 100) {alert ('Число было ' + correct_unswer + '! Вы не угадали! Спасибо за игру.'); break;}
+			if (attempt == 3 || attempt == 23 || attempt == 33 || attempt == 43 || attempt == 53 || attempt == 63 || attempt == 73 || attempt == 83 || attempt == 93) {
+				ending1 = 'ей';
+				ending2 = 'ья';
+			}
+			else {ending1 = 'ой'; ending2 = 'ая';}
+			user_unswer = parseInt(prompt(note + 'Введите любое число:')); //Пользователь вводит число
+			if (1 <= user_unswer && user_unswer <= 100) {
+				if (correct_unswer == user_unswer) { alert ('Вы угадали! Поздравляю! Вы угадали с ' + attempt + '-' + ending1 + ' попытки.')}
+				else if (correct_unswer > user_unswer) { note = 'Не угадали. Ваше число слишком маленькое. Это Ваша ' + attempt + '-' + ending2 + ' попытка.\n\n'}
+				else { note = 'Не угадали. Ваше число слишком большое. Это Ваша ' + attempt + '-' + ending2 + ' попытка.\n\n'}
+			} else {note = 'Ну я же просила число от 1 до 100! Это Ваша ' + attempt + '-' + ending2 + ' попытка.\n\n'};	
+		}
+
+	}
+
+
+</script>>
+
+
+</head>
+<body>
+
+<div id="tooplate_body_wrapper" />
+<div id="tooplate_wrapper" />
+<div id="tooplate_header">
+
+	<div id="tooplate_menu">
+		<ul>
+			<li><a href="index.html">Главная</a></li>
+			<li><a href="puzzle.html">Загадки</a></li>
+			<li><a href="guess.html">Угадайка</a></li>
+		</ul>    	
+	</div>
+</div>
+    
+<div id="content_box">
+		
+	<div id="content_title">
+		<h2>Игра "Угадайка"</h2>
+	</div>
+	<div id="content">
+		
+		<h3>Угадай число!</h3>  
+		</br></br></br>
+		
+		<p>Я загадала число от 1 до 100. Попробуйте угадать!<p/>
+	
+		</br></br></br>
+
+		<input type="button" value="Хочу угадать!" onClick="checkAnswers()"/>
+
+	</div>
+           
+    <div id="tooplate_footer">    
+        Copyright © 2016 Daria Vereshchagina
+    </div>
+    
+</div> <!-- end of warpper -->
+
+</body>
+</html>
